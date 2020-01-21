@@ -18,7 +18,7 @@
     <Color x:Key="LighterGreyColor">#F0F4F8</Color>
     <Color x:Key="LightGreyColor">#F0F4F8</Color>
     <Color x:Key="MediumGreyColor">#A6BCD0</Color>
-    
+
     <Color x:Key="DarkMediumGreyColor">#748A9D</Color>
     <Color x:Key="DarkGreyColor">#4E5D6A</Color>
     <Color x:Key="DarkerGreyColor">#404E5A</Color>
