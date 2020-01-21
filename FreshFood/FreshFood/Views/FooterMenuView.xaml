@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:FreshFood.ViewModels"
+             mc:Ignorable="d"
+             x:Class="FreshFood.Views.FooterMenuView"
+             >
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FooterButtonsStyle" TargetType="Grid">
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource DarkerGreyColor}"/>
+                <Setter Property="Margin" Value="30,0,30,20"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+            </Style>
+
+            <Style x:Key="MenuIconStyle" TargetType="Image">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="WidthRequest" Value="30"/>
+                <Setter Property="HeightRequest" Value="30"/>
+
+            </Style>
+            <Style x:Key="QuickShopIconStyle" TargetType="Image" BasedOn="{StaticResource MenuIconStyle}">
+                <Setter Property="WidthRequest" Value="60"/>
+                <Setter Property="HeightRequest" Value="60"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    
+    <ContentView.Content>
+
+        <Grid x:Name="FooterButtons" Style="{StaticResource FooterButtonsStyle}"
+              RowSpacing="0" ColumnSpacing="10">
+            <Grid.BindingContext>
+                <viewmodels:FooterMenuViewModel/>
+            </Grid.BindingContext>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" Source="icon_store" 
+                   Style="{StaticResource MenuIconStyle}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding ImageClickCommand}"
+                        CommandParameter="0"/>
+                </Image.GestureRecognizers>
+            </Image>
+            
+            <Image Grid.Column="1" Source="icon_recipes" 
+                   Style="{StaticResource MenuIconStyle}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding ImageClickCommand}"
+                        CommandParameter="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+            
+            <Image Grid.Column="2" Source="icon_quick_shop" 
+                   Style="{StaticResource QuickShopIconStyle}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding ImageClickCommand}"
+                        CommandParameter="2"/>
+                </Image.GestureRecognizers>
+            </Image>
+            
+            <Image Grid.Column="3" Source="icon_cart" 
+                   Style="{StaticResource MenuIconStyle}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding ImageClickCommand}"
+                        CommandParameter="3"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image Grid.Column="4" Source="icon_settings" 
+                   Style="{StaticResource MenuIconStyle}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding ImageClickCommand}"
+                        CommandParameter="4"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+
+  </ContentView.Content>
+</ContentView>
