@@ -5,3 +5,5 @@ Template/
 /FreshFood/FreshFood.iOS/obj
 /FreshFood/FreshFood/obj
 /FreshFood/.vs/FreshFood/DesignTimeBuild
+/FreshFood/FreshFood/bin/Debug/netstandard2.0
+/FreshFood/FreshFood.Android/bin/Debug

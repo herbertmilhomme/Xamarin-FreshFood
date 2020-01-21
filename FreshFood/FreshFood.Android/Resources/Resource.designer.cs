@@ -7830,7 +7830,6 @@ namespace FreshFood.Droid
 			public const int MainTheme_Base = 2131624135;
 			
 			// aapt resource value: 0x7F0E00C8
-
 			public const int NestedScrollBarStyle = 2131624136;
 			
 			// aapt resource value: 0x7F0E00C9
