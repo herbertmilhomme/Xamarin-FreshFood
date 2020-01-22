@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FreshFood.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace FreshFood.Views
         public Content_StoreView()
         {
             InitializeComponent();
+            BindingContext = new Content_StoreViewModel();
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }
