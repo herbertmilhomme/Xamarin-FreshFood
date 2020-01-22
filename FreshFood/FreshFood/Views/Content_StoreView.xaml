@@ -39,7 +39,6 @@
                 <Setter Property="VerticalOptions" Value="FillAndExpand"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="Margin" Value="40,20"/>
-
             </Style>
         </ResourceDictionary>
 
@@ -74,8 +73,8 @@
 
                         <Image Source="icon_colour_lemon" Style="{StaticResource MainImageStyle}"/>
                         <Label Text="Vegetables" Style="{StaticResource HeaderStyle}" FontSize="30"/>
-                        <Label Text="Browse" Style="{StaticResource SubheaderStyle}" FontSize="20"/>
-                    </StackLayout>
+                    <Label Text="Browse" Style="{StaticResource SubheaderStyle}" FontSize="20"/>
+                </StackLayout>
                 </pancakeview:PancakeView>
                 
            
@@ -83,6 +82,8 @@
                             ItemsSource="{Binding StoreItems}"
                             ItemTemplate="{StaticResource StoreItemsTemplate}"
                             VerticalOptions="End"
+                            SelectedItem="{Binding CurrentItem, Mode=TwoWay}"
+                            SelectionMode="Single"
                             >
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal"/>

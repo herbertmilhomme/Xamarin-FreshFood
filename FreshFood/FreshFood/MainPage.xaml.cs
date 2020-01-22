@@ -1,6 +1,8 @@
-﻿using FreshFood.Services;
+﻿using FreshFood.Models;
+using FreshFood.Services;
 using FreshFood.ViewModels;
 using FreshFood.Views;
+using Plugin.SharedTransitions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +22,10 @@ namespace FreshFood
         {
             InitializeComponent();
             NavigationService.Instance.MainScreenChangedEvent += OnScreenChange;
+            NavigationService.Instance.MainStoreItemChangedEvent += OnStoreItemChange;
+
+            SharedTransitionNavigationPage.SetBackgroundAnimation(this, BackgroundAnimation.SlideFromBottom);
+            SharedTransitionNavigationPage.SetTransitionDuration(this, 2000);
         }
 
         async void OnScreenChange()
@@ -32,6 +38,12 @@ namespace FreshFood
             var new_screen = MainContent.Children[vm.CurrentScreen];
             await new_screen.FadeTo(1, 250);
             new_screen.IsVisible = true;
+        }
+
+        async void OnStoreItemChange(StoreItem newItem)
+        {
+            SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, "SelectedFreshItem");
+            await Navigation.PushAsync(new Content_DetailedStoreItemPage(newItem));
         }
     }
 }

@@ -20,7 +20,6 @@ namespace FreshFood.ViewModels
         public int PreviousScreen { get; private set; }
         public int CurrentScreen { get; private set; }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         void OnButtonPressed(string id)

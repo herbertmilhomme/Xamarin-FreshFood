@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+             mc:Ignorable="d"
+             x:Class="FreshFood.Views.Content_DetailedStoreItemPage">
+    <ContentPage.Resources>
+        <xamanimation:StoryBoard
+                x:Key="AnimateItem"
+                Target="{x:Reference DetailedItemContent}">
+            <xamanimation:TranslateToAnimation TranslateY="0" Duration="2000"/>
+        </xamanimation:StoryBoard>
+    </ContentPage.Resources>
+    
+    <ContentPage.Triggers>
+        <EventTrigger Event="Appearing">
+            <xamanimation:BeginAnimation     
+                Animation="{StaticResource AnimateItem}" />
+        </EventTrigger>
+    </ContentPage.Triggers>
+    
+    <ContentPage.Content>
+
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+
+            <pancakeview:PancakeView 
+                x:Name="DetailedItemContent"
+                Grid.Row="0"
+                CornerRadius="10" 
+                BackgroundColor="{Binding Item.BackgroundColor}" 
+                VerticalOptions="Start"
+                Padding="20"
+                HasShadow="True"
+                HeightRequest="150" WidthRequest="100">
+
+                <Image Source="{Binding Item.ImageSource}" 
+                       sharedTransitions:Transition.Name="SelectedFreshItem" />
+                 
+            </pancakeview:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

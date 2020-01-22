@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FreshFood.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +8,9 @@ namespace FreshFood.Services
     public class NavigationService
     {
         public delegate void OnMainScreenChange();
+        public delegate void OnStoreItemChange(StoreItem item);
         public event OnMainScreenChange MainScreenChangedEvent;
+        public event OnStoreItemChange MainStoreItemChangedEvent;
 
         private static NavigationService _instance;
 
@@ -25,6 +28,9 @@ namespace FreshFood.Services
             MainScreenChangedEvent?.Invoke();
         }
 
-
+        internal void OnStoreItemChanged(StoreItem item)
+        {
+            MainStoreItemChangedEvent?.Invoke(item);
+        }
     }
 }

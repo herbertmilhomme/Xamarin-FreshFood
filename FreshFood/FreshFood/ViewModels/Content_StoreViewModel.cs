@@ -1,5 +1,6 @@
 ﻿using FreshFood.Models;
 using FreshFood.Services;
+using Plugin.SharedTransitions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,7 +16,7 @@ namespace FreshFood.ViewModels
             LoadData();
         }
 
-        private StoreItem _selectedItem;
+        private StoreItem _currentItem;
         private ObservableCollection<StoreItem> _storeItems;
         public ObservableCollection<StoreItem> StoreItems
         {
@@ -26,13 +27,14 @@ namespace FreshFood.ViewModels
                 OnPropertyChanged();
             }
         }
-        public StoreItem SelectedItem
+        public StoreItem CurrentItem
         {
-            get { return _selectedItem; }
+            get { return _currentItem; }
             set
             {
-                _selectedItem = value;
+                _currentItem = value;
                 OnPropertyChanged();
+                NavigationService.Instance.OnStoreItemChanged(CurrentItem);
             }
         }
         private void LoadData()
