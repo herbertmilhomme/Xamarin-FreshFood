@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FreshFood.Services;
+using FreshFood.ViewModels;
+using FreshFood.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,6 +19,19 @@ namespace FreshFood
         public MainPage()
         {
             InitializeComponent();
+            NavigationService.Instance.MainScreenChangedEvent += OnScreenChange;
+        }
+
+        async void OnScreenChange()
+        {
+            var vm = (FooterMenu.BindingContext as FooterMenuViewModel);
+            var old_screen = MainContent.Children[vm.PreviousScreen];
+            await old_screen.FadeTo(0, 250);
+            old_screen.IsVisible = false;
+
+            var new_screen = MainContent.Children[vm.CurrentScreen];
+            await new_screen.FadeTo(1, 250);
+            new_screen.IsVisible = true;
         }
     }
 }

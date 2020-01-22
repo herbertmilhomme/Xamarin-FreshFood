@@ -19,9 +19,14 @@
                 <!-- Collection view -->
             </Grid.RowDefinitions>
 
-
-            <views:Content_StoreView Grid.Row="0"/>
-            <views:FooterMenuView Grid.Row="1"/>
+            <Grid x:Name="MainContent" Grid.Row="0">
+                <views:Content_StoreView Opacity="1" IsVisible="True"/>
+                <views:Content_RecipesView Opacity="0" IsVisible="False"/>
+                <views:Content_StoreView Opacity="0" IsVisible="False"/>
+                <views:Content_RecipesView Opacity="0" IsVisible="False"/>
+                <views:Content_StoreView Opacity="0" IsVisible="False"/>
+            </Grid>
+            <views:FooterMenuView Grid.Row="1" x:Name="FooterMenu"/>
         </Grid>
 
     </ContentPage.Content>
