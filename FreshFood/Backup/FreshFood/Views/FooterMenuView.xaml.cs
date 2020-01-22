@@ -13,11 +13,16 @@ namespace FreshFood.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FooterMenuView : ContentView
     {
+        FooterMenuViewModel viewModel = new FooterMenuViewModel();
         public FooterMenuView()
         {
             InitializeComponent();
-            BindingContext = new FooterMenuViewModel();
+            FooterButtons.BindingContext = viewModel;
         }
 
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
+        }
     }
 }

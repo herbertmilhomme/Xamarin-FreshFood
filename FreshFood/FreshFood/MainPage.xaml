@@ -11,10 +11,24 @@
              NavigationPage.HasBackButton="False">
 
     <ContentPage.Content>
-        <Grid>
-        <views:Content_StoreView/>
-        <views:FooterMenuView/>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <!-- Pancake header -->
+                <RowDefinition Height="100"/>
+                <!-- Collection view -->
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="MainContent" Grid.Row="0">
+                <views:Content_StoreView Opacity="1" IsVisible="True"/>
+                <views:Content_RecipesView Opacity="0" IsVisible="False"/>
+                <views:Content_StoreView Opacity="0" IsVisible="False"/>
+                <views:Content_RecipesView Opacity="0" IsVisible="False"/>
+                <views:Content_StoreView Opacity="0" IsVisible="False"/>
+            </Grid>
+            <views:FooterMenuView Grid.Row="1" x:Name="FooterMenu"/>
         </Grid>
+
     </ContentPage.Content>
 
 </ContentPage>

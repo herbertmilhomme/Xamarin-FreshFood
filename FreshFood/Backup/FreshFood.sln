@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 15 for Windows Desktop
-VisualStudioVersion = 15.0.27703.2047
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshFood.Android", "FreshFood.Android\FreshFood.Android.csproj", "{CB5E8919-563F-420E-8B8B-3E25A1E06BF9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshFood.iOS", "FreshFood.iOS\FreshFood.iOS.csproj", "{2C57BFD0-70CA-490E-9717-41FDB78FFF5C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreshFood", "FreshFood\FreshFood.csproj", "{2F69C0BF-3851-427E-BDDE-F9ACBD2EFA42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreshFood", "FreshFood\FreshFood.csproj", "{2F69C0BF-3851-427E-BDDE-F9ACBD2EFA42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

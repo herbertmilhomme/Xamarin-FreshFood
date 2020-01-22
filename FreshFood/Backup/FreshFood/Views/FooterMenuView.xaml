@@ -38,13 +38,10 @@
 
         <Grid x:Name="FooterButtons" Style="{StaticResource FooterButtonsStyle}"
               RowSpacing="0" ColumnSpacing="10">
-            
-            <!--
             <Grid.BindingContext>
                 <viewmodels:FooterMenuViewModel/>
             </Grid.BindingContext>
             
-            -->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
