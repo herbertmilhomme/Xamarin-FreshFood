@@ -19,11 +19,9 @@
             </Style>
             <Style x:Key="HeaderStyle" TargetType="Label" BasedOn="{StaticResource BaseLabelStyle}">
                 <Setter Property="TextColor" Value="{StaticResource DynamicTitleColor}"/>
-                <Setter Property="Padding" Value="10"/>
             </Style>
             <Style x:Key="SubheaderStyle" TargetType="Label" BasedOn="{StaticResource BaseLabelStyle}">
-                <Setter Property="TextColor" Value="{StaticResource DynamicSubtitleColor}"/>
-                <Setter Property="Margin" Value="0,0,0,10"/>
+                <Setter Property="TextColor" Value="{StaticResource DynamicSubtitleColor}"/> 
             </Style>
 
 
@@ -37,8 +35,7 @@
                 <Setter Property="Aspect" Value="AspectFit"/>
                 <Setter Property="VerticalOptions" Value="FillAndExpand"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
-                <Setter Property="Margin" Value="40,20"/>
-
+                
             </Style>
         </ResourceDictionary>
 
@@ -49,45 +46,46 @@
     </ContentView.Resources>
 
     <ContentView.Content>
-
+        <ScrollView>
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="150"/> <!-- Collection view -->
+                <RowDefinition Height="100"/> <!-- Footer menu-->
             </Grid.RowDefinitions>
-            
                 <pancakeview:PancakeView 
-                    Grid.Row="0"
-                    CornerRadius="0,0,30,30" 
-                    BackgroundColor="#404E5A"
-                    VerticalOptions="FillAndExpand"
-                    Padding="20"
+                    Grid.RowSpan="3"
+                    CornerRadius="0,0,30,30" BackgroundColor="#404E5A"
+                    Padding="30,50,30,30"
                     HasShadow="True">
-
-
-                    <StackLayout Orientation="Vertical">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="Store" Style="{StaticResource HeaderStyle}"  FontSize="20"/>
-                            <Image Source="icon_search" Style="{StaticResource SearchImageStyle}"/>
-                        </StackLayout>
-
-                        <Image Source="icon_colour_lemon" Style="{StaticResource MainImageStyle}"/>
-                        <Label Text="Vegetables" Style="{StaticResource HeaderStyle}" FontSize="30"/>
-                        <Label Text="Browse" Style="{StaticResource SubheaderStyle}" FontSize="20"/>
+                <StackLayout Orientation="Vertical">
+                    
+                    <StackLayout Grid.Row="0" Orientation="Horizontal" >
+                        <Label Text="Store" Style="{StaticResource HeaderStyle}"  FontSize="20"/>
+                        <Image Source="icon_search" Style="{StaticResource SearchImageStyle}"/>
                     </StackLayout>
-                </pancakeview:PancakeView>
-                
-           
-            <CollectionView Grid.Row="1"
-                            ItemsSource="{Binding StoreItems}"
-                            ItemTemplate="{StaticResource StoreItemsTemplate}"
-                            VerticalOptions="End"
-                            >
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal"/>
-                </CollectionView.ItemsLayout>
-            </CollectionView>
-        </Grid>
 
+                    <Image Grid.Row="1" Source="icon_colour_lemon" Style="{StaticResource MainImageStyle}"/>
+                    
+                    <StackLayout Grid.Row="2">
+                        <Label Text="Vegetables" Style="{StaticResource HeaderStyle}" FontSize="30"/>
+                        <Label Text="Browse" Style="{StaticResource SubheaderStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+            </pancakeview:PancakeView>
+
+                <CollectionView Grid.Row="3" 
+                                ItemsSource="{Binding StoreItems}"
+                                ItemTemplate="{StaticResource StoreItemsTemplate}"
+                                VerticalOptions="End"
+                                >
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"/>
+                    </CollectionView.ItemsLayout>
+                </CollectionView>
+            </Grid>
+        </ScrollView>
     </ContentView.Content>
 </ContentView>

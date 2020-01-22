@@ -11,19 +11,10 @@
              NavigationPage.HasBackButton="False">
 
     <ContentPage.Content>
-        <Grid RowSpacing="0" ColumnSpacing="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <!-- Pancake header -->
-                <RowDefinition Height="100"/>
-                <!-- Collection view -->
-            </Grid.RowDefinitions>
-
-
-            <views:Content_StoreView Grid.Row="0"/>
-            <views:FooterMenuView Grid.Row="1"/>
-        </Grid>
-
+        <StackLayout Orientation="Vertical">
+        <views:Content_StoreView/>
+        <views:FooterMenuView/>
+        </StackLayout>
     </ContentPage.Content>
 
 </ContentPage>
