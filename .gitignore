@@ -7,3 +7,4 @@ Template/
 /FreshFood/.vs/FreshFood/DesignTimeBuild
 /FreshFood/FreshFood/bin/Debug/netstandard2.0
 /FreshFood/FreshFood.Android/bin/Debug
+/FreshFood/FreshFood.iOS/bin/iPhoneSimulator/Debug

@@ -34,7 +34,6 @@
             </Style>
 
             <Style x:Key="MainImageStyle" TargetType="Image">
-                <Setter Property="Margin" Value="40,40"/>
                 <Setter Property="Aspect" Value="AspectFit"/>
                 <Setter Property="VerticalOptions" Value="FillAndExpand"/>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
@@ -44,6 +43,7 @@
     </ContentView.Resources>
 
     <ContentView.Content>
+        <ScrollView>
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -69,26 +69,24 @@
                     </StackLayout>
                 </StackLayout>
             </pancakeview:PancakeView>
-                
 
-            <ScrollView Grid.Row="2" Orientation="Horizontal">
-                <StackLayout Orientation="Horizontal">
-                <Image Source="icon_colour_lemon" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_avocado" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_banana" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_grapes" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_kiwi" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_lemon" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_orange" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_peach" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_pear" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_pineapple" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_pinestrawberry" Style="{StaticResource MainImageStyle}"/>
-                <Image Source="icon_colour_watermelon" Style="{StaticResource MainImageStyle}"/>
-                </StackLayout>
-            </ScrollView>
-
-        </Grid>
-
+                <ScrollView Grid.Row="2" Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" Margin="40">
+                        <Image Source="icon_colour_lemon" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_avocado" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_banana" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_grapes" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_kiwi" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_lemon" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_orange" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_peach" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_pear" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_pineapple" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_pinestrawberry" Style="{StaticResource MainImageStyle}"/>
+                        <Image Source="icon_colour_watermelon" Style="{StaticResource MainImageStyle}"/>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </ScrollView>
     </ContentView.Content>
 </ContentView>

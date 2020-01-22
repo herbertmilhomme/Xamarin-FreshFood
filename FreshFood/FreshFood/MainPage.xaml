@@ -11,10 +11,10 @@
              NavigationPage.HasBackButton="False">
 
     <ContentPage.Content>
-        <Grid>
+        <StackLayout Orientation="Vertical">
         <views:Content_StoreView/>
         <views:FooterMenuView/>
-        </Grid>
+        </StackLayout>
     </ContentPage.Content>
 
 </ContentPage>
