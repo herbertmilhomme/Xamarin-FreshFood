@@ -15,6 +15,7 @@ namespace FreshFood.Views
 {
     public partial class Content_DetailedStoreItemPage : ContentPage, INotifyPropertyChanged
     {
+        private uint AnimationTime = 300;
         private StoreItem _item;
         public StoreItem Item
         {
@@ -34,12 +35,14 @@ namespace FreshFood.Views
             Item = item;
             InitializeComponent();
             BindingContext = this;
-
-            SharedTransitionNavigationPage.SetTransitionDuration(this, 2000);
+            DetailedItemContent.Opacity = 0;
+            SharedTransitionNavigationPage.SetTransitionDuration(this, AnimationTime);
+            DetailedItemContent.FadeTo(1, AnimationTime, Easing.SpringIn);
         }
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
 }

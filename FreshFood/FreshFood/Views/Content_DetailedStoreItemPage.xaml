@@ -8,6 +8,7 @@
              xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
              mc:Ignorable="d"
              x:Class="FreshFood.Views.Content_DetailedStoreItemPage">
+    <!--
     <ContentPage.Resources>
         <xamanimation:StoryBoard
                 x:Key="AnimateItem"
@@ -15,14 +16,14 @@
             <xamanimation:TranslateToAnimation TranslateY="0" Duration="2000"/>
         </xamanimation:StoryBoard>
     </ContentPage.Resources>
-    
+  
     <ContentPage.Triggers>
         <EventTrigger Event="Appearing">
             <xamanimation:BeginAnimation     
                 Animation="{StaticResource AnimateItem}" />
         </EventTrigger>
     </ContentPage.Triggers>
-    
+    -->
     <ContentPage.Content>
 
         <Grid RowSpacing="0" ColumnSpacing="0">
@@ -41,9 +42,11 @@
                 HasShadow="True"
                 HeightRequest="150" WidthRequest="100">
 
-                <Image Source="{Binding Item.ImageSource}" 
-                       sharedTransitions:Transition.Name="SelectedFreshItem" />
-                 
+                <StackLayout Orientation="Vertical">
+                    <Image Source="{Binding Item.ImageSource}" 
+                           sharedTransitions:Transition.Name="SelectedFreshItem"/>
+                    <Label Text="{Binding Item.Name}"/>
+                </StackLayout>
             </pancakeview:PancakeView>
         </Grid>
     </ContentPage.Content>

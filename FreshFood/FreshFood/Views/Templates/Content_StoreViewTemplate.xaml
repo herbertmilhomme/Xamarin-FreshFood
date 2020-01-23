@@ -28,7 +28,8 @@
                        Aspect="AspectFill"
                        VerticalOptions="Center" HorizontalOptions="Center"
                        WidthRequest="80" HeightRequest="80"
-                       sharedTransitions:Transition.Name="SelectedFreshItem" />
+                       sharedTransitions:Transition.Name="SelectedFreshItem"
+                       sharedTransitions:Transition.Group="{Binding Name}"/>
 
                 <Label Grid.Row="1" 
                        Text="{Binding Name, Mode=TwoWay}" TextColor="White" 
