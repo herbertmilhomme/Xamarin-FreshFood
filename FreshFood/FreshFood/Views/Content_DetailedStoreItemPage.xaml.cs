@@ -1,4 +1,5 @@
 ﻿using FreshFood.Models;
+using FreshFood.Services;
 using Plugin.SharedTransitions;
 using System;
 using System.Collections.Generic;
@@ -35,14 +36,16 @@ namespace FreshFood.Views
             Item = item;
             InitializeComponent();
             BindingContext = this;
-            DetailedItemContent.Opacity = 0;
             SharedTransitionNavigationPage.SetTransitionDuration(this, AnimationTime);
-            DetailedItemContent.FadeTo(1, AnimationTime, Easing.SpringIn);
         }
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        private void OnAddToCartPressed(object sender, EventArgs e)
+        {
+            CartService.Instance.AddItem();
+        }
     }
 }

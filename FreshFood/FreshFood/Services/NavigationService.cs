@@ -9,6 +9,7 @@ namespace FreshFood.Services
     {
         public delegate void OnMainScreenChange();
         public delegate void OnStoreItemChange(StoreItem item);
+        
         public event OnMainScreenChange MainScreenChangedEvent;
         public event OnStoreItemChange MainStoreItemChangedEvent;
 

@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:templates="clr-namespace:FreshFood.Views.Templates"
+             mc:Ignorable="d"
+             x:Class="FreshFood.Views.Content_QuickShopView">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor"  Value="{DynamicResource DynamicSubtitleColor}"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HeightRequest" Value="80"/>
+            </Style>
+            <Style x:Key="SelectedLabelStyle" TargetType="Label" BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="FrameStyle" TargetType="pancakeview:PancakeView">
+                <Setter Property="BackgroundColor" Value="{DynamicResource DynamicBackgroundColor}"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="CornerRadius" Value="0,0,20,20"/>
+               
+            </Style>
+            <Style x:Key="PancakeViewStyle" TargetType="pancakeview:PancakeView" >
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="Margin" Value="0,10"/>
+            </Style>
+            <Style x:Key="SelectedPancakeViewStyle" TargetType="pancakeview:PancakeView" BasedOn="{StaticResource PancakeViewStyle}">
+                <Setter Property="BackgroundColor" Value="{StaticResource GreenColor}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical">
+            <pancakeview:PancakeView Style="{StaticResource FrameStyle}">
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal" Margin="40,40,40,0">
+                        <Image Source="icon_refresh" VerticalOptions="Center" HorizontalOptions="StartAndExpand"/>
+                        <Label Text="Quick Shop" TextColor="{DynamicResource DynamicTitleColor}"
+                                FontSize="20"
+                                VerticalOptions="Center" HorizontalOptions="Center"
+                                />
+                        <Image Source="icon_select" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <pancakeview:PancakeView Grid.Column="0" Style="{StaticResource SelectedPancakeViewStyle}">
+                            <Label Text="All" Style="{StaticResource SelectedLabelStyle}"/>
+                        </pancakeview:PancakeView>
+
+                        <pancakeview:PancakeView Grid.Column="1" Style="{StaticResource PancakeViewStyle}">
+                            <Label Text="Fruit" Style="{StaticResource LabelStyle}"/>
+                        </pancakeview:PancakeView>
+                        <pancakeview:PancakeView Grid.Column="2" Style="{StaticResource PancakeViewStyle}">
+                            <Label Text="Veg" Style="{StaticResource LabelStyle}"/>
+                        </pancakeview:PancakeView>
+                        <pancakeview:PancakeView Grid.Column="3" Style="{StaticResource PancakeViewStyle}">
+                            <Label Text="Nuts" Style="{StaticResource LabelStyle}"/>
+                        </pancakeview:PancakeView>
+                    </Grid>
+                </StackLayout>
+            </pancakeview:PancakeView>
+
+        <CollectionView ItemsSource="{Binding StoreItems}"
+                            SelectionMode="None"
+                            InputTransparent="True"
+                            Margin="20,0"
+                            >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="3"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <templates:Content_QuickShopViewTemplate/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -8,46 +8,152 @@
              xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
              mc:Ignorable="d"
              x:Class="FreshFood.Views.Content_DetailedStoreItemPage">
-    <!--
     <ContentPage.Resources>
-        <xamanimation:StoryBoard
-                x:Key="AnimateItem"
-                Target="{x:Reference DetailedItemContent}">
-            <xamanimation:TranslateToAnimation TranslateY="0" Duration="2000"/>
-        </xamanimation:StoryBoard>
-    </ContentPage.Resources>
-  
-    <ContentPage.Triggers>
-        <EventTrigger Event="Appearing">
-            <xamanimation:BeginAnimation     
-                Animation="{StaticResource AnimateItem}" />
-        </EventTrigger>
-    </ContentPage.Triggers>
-    -->
-    <ContentPage.Content>
+        <Style x:Key="MainImageStyle" TargetType="Image">
+            <Setter Property="Aspect" Value="AspectFit"/>
+            <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            <Setter Property="Margin" Value="40,20"/>
+        </Style>
+        <Style x:Key="TitleStyle" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="{StaticResource DynamicTitleColor}"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style x:Key="DetailTitle" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="{StaticResource GreenColor}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0,20"/>
+        </Style>
+        <Style x:Key="DetailDescription" TargetType="Label">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="TextColor" Value="{StaticResource DynamicTitleColor}"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
 
-        <Grid RowSpacing="0" ColumnSpacing="0">
+        <Style x:Key="DetailDescription_Col1" TargetType="Label" BasedOn="{StaticResource DetailDescription}">
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+        </Style>
+        <Style x:Key="DetailDescription_Col2" TargetType="Label" BasedOn="{StaticResource DetailDescription}">
+            <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+        </Style>
+
+
+
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid RowSpacing="0" ColumnSpacing="0"
+              Padding="20,0"
+              BackgroundColor="{DynamicResource DynamicBackgroundColor}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
 
-            <pancakeview:PancakeView 
-                x:Name="DetailedItemContent"
-                Grid.Row="0"
-                CornerRadius="10" 
-                BackgroundColor="{Binding Item.BackgroundColor}" 
-                VerticalOptions="Start"
-                Padding="20"
-                HasShadow="True"
-                HeightRequest="150" WidthRequest="100">
-
-                <StackLayout Orientation="Vertical">
-                    <Image Source="{Binding Item.ImageSource}" 
+            <StackLayout Orientation="Vertical">
+                <Grid Margin="0,40">
+                    <Image Source="icon_arrow"
+                           WidthRequest="20" HeightRequest="20"
+                           Margin="20,0,0,0"
+                           HorizontalOptions="Start" VerticalOptions="Start"/>
+                    <Label Text="{Binding Item.Name}" Style="{StaticResource TitleStyle}"/>
+                </Grid>
+                
+                <Image Source="{Binding Item.ImageSource}" 
+                           Style="{StaticResource MainImageStyle}"
                            sharedTransitions:Transition.Name="SelectedFreshItem"/>
-                    <Label Text="{Binding Item.Name}"/>
+
+                <pancakeview:PancakeView
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        BackgroundColor="{DynamicResource DynamicTitleColor}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="{Binding Item.Name}"/>
+                        <Label Grid.Column="1" Text="{Binding Item.Name}"/>
+                        <Label Grid.Column="2" Text="{Binding Item.Name}"/>
+                        <Button Grid.Column="3" ImageSource="v"/>
+                    </Grid>
+                </pancakeview:PancakeView>
+                
+                
+                <pancakeview:PancakeView
+                    CornerRadius="30"
+                    Padding="0,10"
+                    Margin="0,20"
+                    BackgroundColor="{StaticResource GreenColor}">
+                    <StackLayout Orientation="Horizontal"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="CenterAndExpand"
+                                    >
+                        <Image Source="icon_cart"/>
+                        <Label Text="ADD TO CART"
+                        TextColor="{StaticResource WhiteColor}"
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnAddToCartPressed"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+
+                        </StackLayout>
+                    
+                </pancakeview:PancakeView>
+
+                <Label Text="Description" Style="{StaticResource DetailTitle}"/>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor placerat maximus. Aliquam at sapien fermentum, bibendum justo at, mollis ipsum. Aliquam erat volutpat. Fusce magna ante, ultricies in turpis congue, suscipit posuere mi. Nulla pretium hendrerit consequat." Style="{StaticResource DetailDescription}"/>
+
+                <Label Text="Storage" Style="{StaticResource DetailTitle}"/>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor placerat maximus. Aliquam at sapien fermentum, bibendum justo at, mollis ipsum. Aliquam erat volutpat. Fusce magna ante, ultricies in turpis congue, suscipit posuere mi. Nulla pretium hendrerit consequat." Style="{StaticResource DetailDescription}"/>
+                    
+                <Label Text="Origin" Style="{StaticResource DetailTitle}"/>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor placerat maximus. Aliquam at sapien fermentum, bibendum justo at, mollis ipsum. Aliquam erat volutpat. Fusce magna ante, ultricies in turpis congue, suscipit posuere mi. Nulla pretium hendrerit consequat." Style="{StaticResource DetailDescription}"/>
+                    
+                <Label Text="Preparation and Usage" Style="{StaticResource DetailTitle}"/>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempor placerat maximus. Aliquam at sapien fermentum, bibendum justo at, mollis ipsum. Aliquam erat volutpat. Fusce magna ante, ultricies in turpis congue, suscipit posuere mi. Nulla pretium hendrerit consequat." Style="{StaticResource DetailDescription}"/>
+
+                <Label Text="Nutritional Information" Style="{StaticResource DetailTitle}"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Serving Size" Style="{StaticResource DetailDescription_Col1}"/>
+                        <Label Text="250g" Style="{StaticResource DetailDescription_Col2}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Serving Size" Style="{StaticResource DetailDescription_Col1}"/>
+                        <Label Text="250g" Style="{StaticResource DetailDescription_Col2}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Serving Size" Style="{StaticResource DetailDescription_Col1}"/>
+                        <Label Text="250g" Style="{StaticResource DetailDescription_Col2}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Serving Size" Style="{StaticResource DetailDescription_Col1}"/>
+                        <Label Text="250g" Style="{StaticResource DetailDescription_Col2}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Serving Size" Style="{StaticResource DetailDescription_Col1}"/>
+                        <Label Text="250g" Style="{StaticResource DetailDescription_Col2}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Serving Size" Style="{StaticResource DetailDescription_Col1}"/>
+                        <Label Text="250g" Style="{StaticResource DetailDescription_Col2}"/>
+                    </StackLayout>
+
                 </StackLayout>
-            </pancakeview:PancakeView>
         </Grid>
+        </ScrollView>
     </ContentPage.Content>
+        
 </ContentPage>

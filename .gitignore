@@ -8,3 +8,5 @@ Template/
 /FreshFood/FreshFood/bin/Debug/netstandard2.0
 /FreshFood/FreshFood.Android/bin/Debug
 /FreshFood/FreshFood.iOS/bin/iPhoneSimulator/Debug
+/FreshFood/FreshFood/bin/Release/netstandard2.0
+/FreshFood/FreshFood.Android/bin/Release
