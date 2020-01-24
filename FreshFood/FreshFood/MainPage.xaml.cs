@@ -23,9 +23,7 @@ namespace FreshFood
             InitializeComponent();
             NavigationService.Instance.MainScreenChangedEvent += OnScreenChange;
             NavigationService.Instance.MainStoreItemChangedEvent += OnStoreItemChange;
-
-            SharedTransitionNavigationPage.SetBackgroundAnimation(this, BackgroundAnimation.Fade);
-            SharedTransitionNavigationPage.SetTransitionDuration(this, 300);
+            NavigationService.Instance.QuickStoreChangedEvent += OnQuickShopPressed;
         }
 
         async void OnScreenChange()
@@ -42,8 +40,20 @@ namespace FreshFood
 
         async void OnStoreItemChange(StoreItem newItem)
         {
+            SetPageAnimation(BackgroundAnimation.Fade, 300);
             SharedTransitionNavigationPage.SetTransitionSelectedGroup(this, newItem.Name);
             await Navigation.PushAsync(new Content_DetailedStoreItemPage(newItem));
+        }
+
+        private void SetPageAnimation(BackgroundAnimation animation, long time)
+        {
+            SharedTransitionNavigationPage.SetBackgroundAnimation(this, animation);
+            SharedTransitionNavigationPage.SetTransitionDuration(this, time);
+        }
+        async void OnQuickShopPressed()
+        {
+            SetPageAnimation(BackgroundAnimation.SlideFromBottom, 300);
+            await Navigation.PushAsync(new QuickShopPage());
         }
     }
 }

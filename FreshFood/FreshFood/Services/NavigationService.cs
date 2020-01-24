@@ -8,9 +8,11 @@ namespace FreshFood.Services
     public class NavigationService
     {
         public delegate void OnMainScreenChange();
+        public delegate void OnQuickStorePressed();
         public delegate void OnStoreItemChange(StoreItem item);
         
         public event OnMainScreenChange MainScreenChangedEvent;
+        public event OnQuickStorePressed QuickStoreChangedEvent;
         public event OnStoreItemChange MainStoreItemChangedEvent;
 
         private static NavigationService _instance;
@@ -29,6 +31,15 @@ namespace FreshFood.Services
             MainScreenChangedEvent?.Invoke();
         }
 
+        public void GoToPreviousScreen()
+        {
+            App.Current.MainPage.Navigation.PopAsync();
+        }
+
+        public void ShowQuickShop()
+        {
+            QuickStoreChangedEvent?.Invoke();
+        }
         internal void OnStoreItemChanged(StoreItem item)
         {
             MainStoreItemChangedEvent?.Invoke(item);

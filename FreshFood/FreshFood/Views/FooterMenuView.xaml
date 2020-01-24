@@ -71,12 +71,12 @@
                 </Image.GestureRecognizers>
             </Image>
             
-            <Image Grid.Column="2" Source="icon_quick_shop" 
+            <Image Grid.Column="2"
+                   Source="{Binding QuickShopIcon}" 
                    Style="{StaticResource QuickShopIconStyle}">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer 
-                        Command="{Binding ImageClickCommand}"
-                        CommandParameter="2"/>
+                        Command="{Binding QuickShopCommand}"/>
                 </Image.GestureRecognizers>
             </Image>
             
@@ -85,7 +85,7 @@
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer 
                         Command="{Binding ImageClickCommand}"
-                        CommandParameter="3"/>
+                        CommandParameter="2"/>
                 </Image.GestureRecognizers>
             </Image>
 
@@ -94,7 +94,7 @@
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer 
                         Command="{Binding ImageClickCommand}"
-                        CommandParameter="4"/>
+                        CommandParameter="3"/>
                 </Image.GestureRecognizers>
             </Image>
         </Grid>

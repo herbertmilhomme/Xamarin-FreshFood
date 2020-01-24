@@ -7,7 +7,8 @@
              xmlns:templates="clr-namespace:FreshFood.Views.Templates"
              xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              mc:Ignorable="d"
-             x:Class="FreshFood.Views.Content_StoreView">
+             x:Class="FreshFood.Views.Content_StoreView"
+             >
 
 
     <ContentView.Resources>
