@@ -1,4 +1,4 @@
-﻿using FreshFood.ViewModels;
+﻿using FreshFood.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace FreshFood.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Content_RecipesView : ContentView
+    public partial class Content_DetailedRecipeItemPage : ContentPage
     {
-        public Content_RecipesView()
+        public RecipeItem Item;
+        public Content_DetailedRecipeItemPage(RecipeItem item)
         {
             InitializeComponent();
-            BindingContext = new Content_RecipesViewModel();
+            Item = item;
         }
     }
 }

@@ -21,12 +21,17 @@ namespace FreshFood
         public MainPage()
         {
             InitializeComponent();
-            NavigationService.Instance.MainScreenChangedEvent += OnScreenChange;
+            NavigationService.Instance.MainScreenChangedEvent += OnMainContentChange;
             NavigationService.Instance.MainStoreItemChangedEvent += OnStoreItemChange;
             NavigationService.Instance.QuickStoreChangedEvent += OnQuickShopPressed;
+            NavigationService.Instance.MainRecipeItemChangedEvent += OnRecipeItemChange;
         }
-
-        async void OnScreenChange()
+        private void SetPageAnimation(BackgroundAnimation animation, long time)
+        {
+            SharedTransitionNavigationPage.SetBackgroundAnimation(this, animation);
+            SharedTransitionNavigationPage.SetTransitionDuration(this, time);
+        }
+        async void OnMainContentChange()
         {
             var vm = (FooterMenu.BindingContext as FooterMenuViewModel);
             var old_screen = MainContent.Children[vm.PreviousScreen];
@@ -45,10 +50,10 @@ namespace FreshFood
             await Navigation.PushAsync(new Content_DetailedStoreItemPage(newItem));
         }
 
-        private void SetPageAnimation(BackgroundAnimation animation, long time)
+        async void OnRecipeItemChange(RecipeItem newItem)
         {
-            SharedTransitionNavigationPage.SetBackgroundAnimation(this, animation);
-            SharedTransitionNavigationPage.SetTransitionDuration(this, time);
+            SetPageAnimation(BackgroundAnimation.SlideFromRight, 300);
+            await Navigation.PushAsync(new Content_DetailedRecipeItemPage(newItem));
         }
         async void OnQuickShopPressed()
         {

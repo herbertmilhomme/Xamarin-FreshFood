@@ -7,7 +7,10 @@
              xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
              mc:Ignorable="d"
-             x:Class="FreshFood.Views.Content_DetailedStoreItemPage">
+             x:Class="FreshFood.Views.Content_DetailedStoreItemPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             >
     <ContentPage.Resources>
         <Style x:Key="MainImageStyle" TargetType="Image">
             <Setter Property="Aspect" Value="AspectFit"/>

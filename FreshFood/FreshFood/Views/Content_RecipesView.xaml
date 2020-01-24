@@ -8,4 +8,101 @@
              mc:Ignorable="d"
              x:Class="FreshFood.Views.Content_RecipesView">
 
+
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor"  Value="{DynamicResource DynamicSubtitleColor}"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HeightRequest" Value="80"/>
+            </Style>
+            <Style x:Key="SelectedLabelStyle" TargetType="Label" BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="FrameStyle" TargetType="pancakeview:PancakeView">
+                <Setter Property="BackgroundColor" Value="{DynamicResource DynamicBackgroundColor}"/>
+                <Setter Property="HasShadow" Value="True"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="CornerRadius" Value="0,0,20,20"/>
+
+            </Style>
+            <Style x:Key="PancakeViewStyle" TargetType="pancakeview:PancakeView" >
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="Margin" Value="0,10"/>
+            </Style>
+            <Style x:Key="SelectedPancakeViewStyle" TargetType="pancakeview:PancakeView" BasedOn="{StaticResource PancakeViewStyle}">
+                <Setter Property="BackgroundColor" Value="{StaticResource GreenColor}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical">
+            <pancakeview:PancakeView Style="{StaticResource FrameStyle}">
+                <StackLayout Orientation="Vertical">
+                    <Grid ColumnSpacing="0" Margin="20,40" VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0"
+                            Text="Recipes" TextColor="{DynamicResource DynamicTitleColor}"
+                               FontSize="20" 
+                               HorizontalOptions="Center" VerticalOptions="Center"
+                               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        
+                        <Image Grid.Column="1" 
+                               Source="icon_search" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                    </Grid>
+
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <pancakeview:PancakeView Grid.Column="0" Style="{StaticResource SelectedPancakeViewStyle}">
+                            <Label Text="All" Style="{StaticResource SelectedLabelStyle}"/>
+                        </pancakeview:PancakeView>
+
+                        <pancakeview:PancakeView Grid.Column="1" Style="{StaticResource PancakeViewStyle}">
+                            <Label Text="Vegan" Style="{StaticResource LabelStyle}"/>
+                        </pancakeview:PancakeView>
+                        <pancakeview:PancakeView Grid.Column="2" Style="{StaticResource PancakeViewStyle}">
+                            <Label Text="Keto" Style="{StaticResource LabelStyle}"/>
+                        </pancakeview:PancakeView>
+                        <pancakeview:PancakeView Grid.Column="3" Style="{StaticResource PancakeViewStyle}">
+                            <Label Text="Paleo" Style="{StaticResource LabelStyle}"/>
+                        </pancakeview:PancakeView>
+                    </Grid>
+                </StackLayout>
+            </pancakeview:PancakeView>
+
+            <CollectionView ItemsSource="{Binding Recipes}"
+                            SelectionMode="Single"
+                            InputTransparent="True"
+                            Margin="20,0"
+                            SelectionChangedCommand="{Binding SelectedRecipeChangedCommand}"
+                            SelectedItem="{Binding CurrentItem}"
+                            >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <templates:Content_RecipesViewTemplate/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+    </ContentView.Content>
 </ContentView>

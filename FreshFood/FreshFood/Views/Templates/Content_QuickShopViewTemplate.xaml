@@ -31,5 +31,6 @@
             <Image Source="{Binding ImageSource}" Style="{StaticResource ImageStyle}"/>
             <Label Text="{Binding Name}" Style="{StaticResource LabelStyle}"/>
         </StackLayout>
+        
     </ContentView.Content>
 </ContentView>
