@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="FreshFood.Custom.Custom_ItemCounterView">
+    
+    <ContentView.Content>
+
+        <pancakeview:PancakeView
+            CornerRadius="10"
+            Padding="10"
+            BackgroundColor="{StaticResource LightBlueColor}">
+            <Grid ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" x:Name="DecreaseButton"
+                       Text="-" 
+                       TextColor="{DynamicResource DynamicSubtitleColor}"
+                       VerticalOptions="Center" VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Start">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DecreaseCommand}"
+                                              CommandParameter="{x:Reference DecreaseButton}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label Grid.Column="1" Text="{Binding Quantity}"
+                       TextColor="{DynamicResource DynamicTitleColor}"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center" VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" HorizontalOptions="Center"
+                       />
+
+                <Label Grid.Column="2" x:Name="IncreaseButton"
+                       Text="+" 
+                       VerticalOptions="Center" VerticalTextAlignment="Center"
+                       TextColor="{DynamicResource DynamicSubtitleColor}"
+                       HorizontalTextAlignment="End">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding IncreaseCommand}"
+                                                  CommandParameter="{x:Reference IncreaseButton}"/>
+                        </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </pancakeview:PancakeView>
+    </ContentView.Content>
+</ContentView>

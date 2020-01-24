@@ -10,6 +10,8 @@
     <Color x:Key="BlackColor">#000000</Color>
     <Color x:Key="GreenColor">#7BED8D</Color>
 
+    <Color x:Key="LightBlueColor">#4E5D6A</Color>
+    
     <Color x:Key="DynamicBackgroundColor">Default</Color>
     <Color x:Key="DynamicTitleColor">Default</Color>
     <Color x:Key="DynamicSubtitleColor">Default</Color>

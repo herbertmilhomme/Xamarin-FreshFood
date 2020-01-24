@@ -24,11 +24,17 @@
     <Folder Include="Fonts\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Custom\Custom_ItemCounterView.xaml.cs">
+      <DependentUpon>Custom_ItemCounterView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\FooterMenuView.xaml.cs">
       <DependentUpon>FooterMenuView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Custom\Custom_ItemCounterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Styles\Colors.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

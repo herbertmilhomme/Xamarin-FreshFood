@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:FreshFood.Custom"
              mc:Ignorable="d"
              x:Class="FreshFood.Views.Templates.Content_QuickShopViewTemplate">
     
@@ -13,7 +14,7 @@
                 <Setter Property="TextColor" Value="DarkGray" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="TextColor" Value="{StaticResource DynamicTitleColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource DynamicTitleColor}"/>
             </Style>
 
             <Style x:Key="ImageStyle" TargetType="Image">
@@ -30,6 +31,8 @@
         <StackLayout Orientation="Vertical" Margin="20">
             <Image Source="{Binding ImageSource}" Style="{StaticResource ImageStyle}"/>
             <Label Text="{Binding Name}" Style="{StaticResource LabelStyle}"/>
+            <custom:Custom_ItemCounterView 
+                VerticalOptions="Center" HorizontalOptions="Center"/>
         </StackLayout>
         
     </ContentView.Content>
