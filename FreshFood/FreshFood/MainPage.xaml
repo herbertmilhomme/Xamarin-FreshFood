@@ -6,7 +6,7 @@
              xmlns:views="clr-namespace:FreshFood.Views"
              mc:Ignorable="d"
              x:Class="FreshFood.MainPage"
-             BackgroundColor="{DynamicResource DarkerGreyColor}"
+             BackgroundColor="{DynamicResource DynamicBackgroundColor}"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False">
 
@@ -23,7 +23,7 @@
                 <views:Content_StoreView Opacity="1" IsVisible="True"/>
                 <views:Content_RecipesView Opacity="0" IsVisible="False"/>
                 <views:Content_RecipesView Opacity="0" IsVisible="False"/>
-                <views:Content_StoreView Opacity="0" IsVisible="False"/>
+                <views:Content_SettingsView Opacity="0" IsVisible="False"/>
             </Grid>
             <views:FooterMenuView Grid.Row="1" x:Name="FooterMenu"/>
         </Grid>

@@ -1,5 +1,6 @@
 ﻿using FreshFood.Models;
 using FreshFood.Services;
+using FreshFood.Themes;
 using FreshFood.ViewModels;
 using FreshFood.Views;
 using Plugin.SharedTransitions;
@@ -21,10 +22,11 @@ namespace FreshFood
         public MainPage()
         {
             InitializeComponent();
+            ThemeHelper.ChangeTheme("dark");
             NavigationService.Instance.MainScreenChangedEvent += OnMainContentChange;
             NavigationService.Instance.MainStoreItemChangedEvent += OnStoreItemChange;
-            NavigationService.Instance.QuickStoreChangedEvent += OnQuickShopPressed;
             NavigationService.Instance.MainRecipeItemChangedEvent += OnRecipeItemChange;
+            NavigationService.Instance.QuickStoreChangedEvent += OnQuickShopPressed;
         }
         private void SetPageAnimation(BackgroundAnimation animation, long time)
         {

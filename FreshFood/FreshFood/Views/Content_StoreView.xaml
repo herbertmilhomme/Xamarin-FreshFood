@@ -20,11 +20,11 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
             </Style>
             <Style x:Key="HeaderStyle" TargetType="Label" BasedOn="{StaticResource BaseLabelStyle}">
-                <Setter Property="TextColor" Value="{StaticResource DynamicTitleColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource DynamicTitleColor}"/>
                 <Setter Property="Padding" Value="10"/>
             </Style>
             <Style x:Key="SubheaderStyle" TargetType="Label" BasedOn="{StaticResource BaseLabelStyle}">
-                <Setter Property="TextColor" Value="{StaticResource DynamicSubtitleColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource DynamicSubtitleColor}"/>
                 <Setter Property="Margin" Value="0,0,0,10"/>
             </Style>
 
@@ -60,7 +60,7 @@
                 <pancakeview:PancakeView 
                     Grid.Row="0"
                     CornerRadius="0,0,30,30" 
-                    BackgroundColor="#404E5A"
+                    BackgroundColor="{DynamicResource DynamicBackgroundColor}"
                     VerticalOptions="FillAndExpand"
                     Padding="20"
                     HasShadow="True">
