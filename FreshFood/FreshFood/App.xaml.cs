@@ -11,7 +11,7 @@ namespace FreshFood
         {
             InitializeComponent();
 
-            MainPage = new SharedTransitionNavigationPage(new MainPage());
+            MainPage = new SplashScreenPage();
         }
 
         protected override void OnStart()
