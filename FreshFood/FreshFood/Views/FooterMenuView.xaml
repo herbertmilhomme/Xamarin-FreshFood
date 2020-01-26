@@ -6,7 +6,8 @@
              xmlns:viewmodels="clr-namespace:FreshFood.ViewModels"
              mc:Ignorable="d"
              x:Class="FreshFood.Views.FooterMenuView"
-             >
+             xmlns:controls="clr-namespace:IconApp;assembly=IconApp"
+             xmlns:customcontrols="clr-namespace:FreshFood.Custom.CustomControls">
 
     <ContentView.Resources>
         <ResourceDictionary>
@@ -19,14 +20,17 @@
 
             </Style>
 
-            <Style x:Key="MenuIconStyle" TargetType="Image">
+            <Style x:Key="MenuIconStyle" TargetType="customcontrols:IconView">
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="WidthRequest" Value="30"/>
                 <Setter Property="HeightRequest" Value="30"/>
-
+                <Setter Property="Foreground" Value="{DynamicResource DynamicTitleColor}"/>
             </Style>
-            <Style x:Key="QuickShopIconStyle" TargetType="Image" BasedOn="{StaticResource MenuIconStyle}">
+            <Style x:Key="SelectedMenuIconStyle" TargetType="customcontrols:IconView" BasedOn="{StaticResource MenuIconStyle}">
+                <Setter Property="Foreground" Value="Green"/>
+            </Style>
+            <Style x:Key="QuickShopIconStyle" TargetType="customcontrols:IconView" BasedOn="{StaticResource MenuIconStyle}">
                 <Setter Property="WidthRequest" Value="60"/>
                 <Setter Property="HeightRequest" Value="60"/>
             </Style>
@@ -53,24 +57,26 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Grid.Column="0" Source="icon_store" 
-                   Style="{StaticResource MenuIconStyle}">
-                <Image.GestureRecognizers>
+            <customcontrols:IconView Grid.Column="0" 
+                                     Source="icon_store" 
+                                     Style="{StaticResource SelectedMenuIconStyle}">
+                <customcontrols:IconView.GestureRecognizers>
                     <TapGestureRecognizer 
                         Command="{Binding ImageClickCommand}"
                         CommandParameter="0"/>
-                </Image.GestureRecognizers>
-            </Image>
-            
-            <Image Grid.Column="1" Source="icon_recipes" 
-                   Style="{StaticResource MenuIconStyle}">
-                <Image.GestureRecognizers>
+                </customcontrols:IconView.GestureRecognizers>
+            </customcontrols:IconView>
+
+            <customcontrols:IconView Grid.Column="1" 
+                                     Source="icon_recipes" 
+                                     Style="{StaticResource MenuIconStyle}">
+                <customcontrols:IconView.GestureRecognizers>
                     <TapGestureRecognizer 
                         Command="{Binding ImageClickCommand}"
                         CommandParameter="1"/>
-                </Image.GestureRecognizers>
-            </Image>
-            
+                </customcontrols:IconView.GestureRecognizers>
+            </customcontrols:IconView>
+
             <Image Grid.Column="2"
                    Source="{Binding QuickShopIcon}" 
                    Style="{StaticResource QuickShopIconStyle}">
@@ -79,24 +85,27 @@
                         Command="{Binding QuickShopCommand}"/>
                 </Image.GestureRecognizers>
             </Image>
-            
-            <Image Grid.Column="3" Source="icon_cart" 
-                   Style="{StaticResource MenuIconStyle}">
-                <Image.GestureRecognizers>
+
+            <customcontrols:IconView Grid.Column="3" 
+                                     Source="icon_cart" 
+                                     Style="{StaticResource MenuIconStyle}">
+                <customcontrols:IconView.GestureRecognizers>
                     <TapGestureRecognizer 
                         Command="{Binding ImageClickCommand}"
                         CommandParameter="2"/>
-                </Image.GestureRecognizers>
-            </Image>
+                </customcontrols:IconView.GestureRecognizers>
+            </customcontrols:IconView>
 
-            <Image Grid.Column="4" Source="icon_settings" 
-                   Style="{StaticResource MenuIconStyle}">
-                <Image.GestureRecognizers>
+            <customcontrols:IconView Grid.Column="4" 
+                                     Source="icon_settings" 
+                                     Style="{StaticResource MenuIconStyle}">
+                <customcontrols:IconView.GestureRecognizers>
                     <TapGestureRecognizer 
                         Command="{Binding ImageClickCommand}"
                         CommandParameter="3"/>
-                </Image.GestureRecognizers>
-            </Image>
+                </customcontrols:IconView.GestureRecognizers>
+            </customcontrols:IconView>
+
         </Grid>
 
   </ContentView.Content>
