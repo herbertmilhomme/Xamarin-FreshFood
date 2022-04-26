@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:views="clr-namespace:FreshFood.Views"
+			 x:Class="FreshFood.AppShell">
+
+	<Shell.Resources>
+		<ResourceDictionary>
+			<Color x:Key="WhiteColor">#FFFFFF</Color>
+			<Color x:Key="GreenColor">#7BED8D</Color>
+			<Color x:Key="DarkGray">#4E5D6A</Color>
+			<Color x:Key="DarkerGray">#404D5A</Color>
+			<Color x:Key="MediumDarkGray">#748A9D</Color>
+			<Color x:Key="MediumLightGray">#A6BCD0</Color>
+			<Color x:Key="LightGray">#DBE2ED</Color>
+			<Color x:Key="LighterGray">#F0F4F8</Color>
+
+
+			<Color x:Key="BlackColor">#000000</Color>
+			<Color x:Key="LightBlueColor">#4E5D6A</Color>
+
+			<Color x:Key="DynamicBackgroundColor">Default</Color>
+			<Color x:Key="DynamicTitleColor">Default</Color>
+			<Color x:Key="DynamicSubtitleColor">Default</Color>
+
+			<!--<Color x:Key="PrimaryColor">#EF3D55</Color>
+			<Color x:Key="GrayColor">Gray</Color>
+			<Color x:Key="BackgroundColor">#F0F0F0</Color>-->
+			<Style x:Key="BaseStyle" TargetType="Element">
+				<Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource WhiteColor}"/>
+				<Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource GreenColor}"/>
+				<Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource MediumDarkGray}"/>
+				<Setter Property="Shell.TabBarTitleColor" Value="{StaticResource GreenColor}"/>
+			</Style>
+			<Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+
+			<!-- Fonts -->
+			<OnPlatform
+				x:Key="Futura"
+				x:TypeArguments="x:String"
+				iOS="Futura"
+				Android="Futura.ttf#Futura-Bold" />
+
+			<OnPlatform
+				x:Key="FuturaMedium"
+				x:TypeArguments="x:String"
+				iOS="FuturaMdBt"
+				Android="FuturaMdBt.ttf#Futura Md BT" />
+
+			<OnPlatform
+				x:Key="FuturaHeavy"
+				x:TypeArguments="x:String"
+				iOS="FuturaHvBt"
+				Android="FuturaHvBt.ttf#Futura Hv BT" />
+
+			<!-- Font sizes  -->
+			<x:Double x:Key="FontSize10">10</x:Double>
+			<x:Double x:Key="FontSize12">12</x:Double>
+			<x:Double x:Key="FontSize13">13</x:Double>
+			<x:Double x:Key="FontSize14">14</x:Double>
+			<x:Double x:Key="FontSize16">16</x:Double>
+			<x:Double x:Key="FontSize18">18</x:Double>
+			<x:Double x:Key="FontSize20">20</x:Double>
+			<x:Double x:Key="FontSize24">24</x:Double>
+			<x:Double x:Key="FontSize26">26</x:Double>
+			<x:Double x:Key="FontSize28">28</x:Double>
+			<x:Double x:Key="FontSize30">30</x:Double>
+			<x:Double x:Key="FontSize36">36</x:Double>
+			<x:Double x:Key="FontSize48">48</x:Double>
+		</ResourceDictionary>
+	</Shell.Resources>
+
+	<FlyoutItem Title="Home">
+		<Tab Icon="icon_store.png">
+			<ShellContent ContentTemplate="{DataTemplate views:TabbedPage1}" />
+		</Tab>
+		<!--<Tab Icon="icon_store.png"> --><!--Home/Store Menu--><!--
+			<ShellContent ContentTemplate="{DataTemplate views:Content_StoreView}" />
+		</Tab>
+		<Tab Icon="icon_store.png"> --><!--Recipes--><!--
+			<ShellContent ContentTemplate="{DataTemplate views:Content_RecipesView}" />
+		</Tab>
+		<Tab Icon="icon_store.png"> --><!--Quick Shop--><!--
+			<ShellContent ContentTemplate="{DataTemplate views:Content_QuickShopView}" />
+		</Tab>
+		<Tab Icon="icon_store.png"> --><!--Cart--><!--
+			<ShellContent ContentTemplate="{DataTemplate views:Content_RecipesView}" />
+		</Tab>
+		<Tab Icon="icon_settings.png"> --><!--Setting--><!--
+			<ShellContent ContentTemplate="{DataTemplate views:Content_SettingsView}" />
+		</Tab>-->
+	</FlyoutItem>
+</Shell>

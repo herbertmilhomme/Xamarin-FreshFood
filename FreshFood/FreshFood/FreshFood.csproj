@@ -13,6 +13,54 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Custom\**" />
+    <Compile Remove="Fonts\**" />
+    <Compile Remove="Models\**" />
+    <Compile Remove="Services\**" />
+    <Compile Remove="Styles\**" />
+    <Compile Remove="Themes\**" />
+    <Compile Remove="ViewModels\**" />
+    <Compile Remove="Views\Templates\**" />
+    <EmbeddedResource Remove="Custom\**" />
+    <EmbeddedResource Remove="Fonts\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <EmbeddedResource Remove="Styles\**" />
+    <EmbeddedResource Remove="Themes\**" />
+    <EmbeddedResource Remove="ViewModels\**" />
+    <EmbeddedResource Remove="Views\Templates\**" />
+    <None Remove="Custom\**" />
+    <None Remove="Fonts\**" />
+    <None Remove="Models\**" />
+    <None Remove="Services\**" />
+    <None Remove="Styles\**" />
+    <None Remove="Themes\**" />
+    <None Remove="ViewModels\**" />
+    <None Remove="Views\Templates\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MainPage.xaml.cs" />
+    <Compile Remove="Views\Content_DetailedRecipeItemPage.xaml.cs" />
+    <Compile Remove="Views\Content_DetailedStoreItemPage.xaml.cs" />
+    <Compile Remove="Views\Content_QuickShopView.xaml.cs" />
+    <Compile Remove="Views\Content_RecipesView.xaml.cs" />
+    <Compile Remove="Views\Content_SettingsView.xaml.cs" />
+    <Compile Remove="Views\Content_StoreView.xaml.cs" />
+    <Compile Remove="Views\FooterMenuView.xaml.cs" />
+    <Compile Remove="Views\QuickShopPage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="MainPage.xaml" />
+    <EmbeddedResource Remove="Views\Content_DetailedRecipeItemPage.xaml" />
+    <EmbeddedResource Remove="Views\Content_DetailedStoreItemPage.xaml" />
+    <EmbeddedResource Remove="Views\Content_QuickShopView.xaml" />
+    <EmbeddedResource Remove="Views\Content_RecipesView.xaml" />
+    <EmbeddedResource Remove="Views\Content_SettingsView.xaml" />
+    <EmbeddedResource Remove="Views\Content_StoreView.xaml" />
+    <EmbeddedResource Remove="Views\FooterMenuView.xaml" />
+    <EmbeddedResource Remove="Views\QuickShopPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="LiveXAML" Version="2.1.73" />
     <PackageReference Include="Xamanimation" Version="1.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991477" />
@@ -21,72 +69,8 @@
     <PackageReference Include="Xamarin.Plugin.SharedTransitions" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Fonts\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Custom\Custom_ItemCounterView.xaml.cs">
-      <DependentUpon>Custom_ItemCounterView.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\FooterMenuView.xaml.cs">
-      <DependentUpon>FooterMenuView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Custom\Custom_ItemCounterView.xaml">
+    <EmbeddedResource Update="AppShell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Styles\Colors.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Styles\Fonts.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Themes\DarkTheme.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Themes\LightTheme.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Content_DetailedRecipeItemPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Content_DetailedStoreItemPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Content_QuickShopView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Content_RecipesView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Content_SettingsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Content_StoreView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\FooterMenuView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\QuickShopPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Templates\Content_QuickShopViewTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Templates\Content_RecipesViewTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Templates\Content_StoreViewTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Styles\Colors.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
-    <None Update="Styles\Fonts.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
   </ItemGroup>
 </Project>

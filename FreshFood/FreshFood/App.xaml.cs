@@ -5,25 +5,32 @@ using Xamarin.Forms.Xaml;
 
 namespace FreshFood
 {
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
+	public partial class App : Application
+	{
+		//public string ColorPrimary { get; set; }
+		//public string ColorBackground { get; set; }
+		public const string ColorPrimary = "PrimaryColor";
+		public const string ColorBackground = "BackgroundColor";
 
-            MainPage = new SplashScreenPage();
-        }
+		public App()
+		{
+			InitializeComponent();
 
-        protected override void OnStart()
-        {
-        }
+			//Load theme colors...
+			MainPage = new SplashScreenPage();
+			//MainPage = new AppShell();
+		}
 
-        protected override void OnSleep()
-        {
-        }
+		protected override void OnStart()
+		{
+		}
 
-        protected override void OnResume()
-        {
-        }
-    }
+		protected override void OnSleep()
+		{
+		}
+
+		protected override void OnResume()
+		{
+		}
+	}
 }

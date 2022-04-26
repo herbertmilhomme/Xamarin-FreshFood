@@ -19,8 +19,8 @@ namespace FreshFood
             splashImage = new Image
             {
                 Source = "icon_colour_strawberry",
-                WidthRequest = 100,
-                HeightRequest = 100
+                WidthRequest = 180,
+                HeightRequest = 180
             };
 
             AbsoluteLayout.SetLayoutFlags(splashImage, AbsoluteLayoutFlags.PositionProportional);
@@ -37,8 +37,8 @@ namespace FreshFood
             await splashImage.ScaleTo(1, 2000);
             await splashImage.ScaleTo(0.8, 1500, Easing.Linear);
             await splashImage.ScaleTo(150, 500, Easing.BounceOut);
-            Application.Current.MainPage = new SharedTransitionNavigationPage(new MainPage());
-            //Application.Current.MainPage = new SharedTransitionNavigationPage(new AppShell());
+            //Application.Current.MainPage = new SharedTransitionNavigationPage(new MainPage());
+            Application.Current.MainPage = new SharedTransitionNavigationPage(new AppShell());
         }
     }
 }
