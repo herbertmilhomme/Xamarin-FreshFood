@@ -11,12 +11,6 @@ namespace FreshFood.ViewModels
 {
     public class FooterMenuViewModel : INotifyPropertyChanged
     {
-        public FooterMenuViewModel()
-        {
-            ImageClickCommand = new Command<string>(OnButtonPressed);
-            QuickShopCommand = new Command(OnQuickShopPressed);
-            QuickShopIcon = "icon_quick_shop";
-        }
         private bool isActive;
         public bool IsActive
         {
@@ -28,14 +22,13 @@ namespace FreshFood.ViewModels
             {
                 isActive = value;
                 QuickShopIcon = (isActive) ? "icon_quick_shop_1" : "icon_quick_shop";
-
             }
         }
         public ICommand ImageClickCommand { get; set; }
         public ICommand QuickShopCommand { get; set; }
 
         private string _quickShopIcon;
-        public string QuickShopIcon { 
+        public string QuickShopIcon {
             get
             {
                 return _quickShopIcon;
@@ -51,6 +44,13 @@ namespace FreshFood.ViewModels
         public int CurrentScreen { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public FooterMenuViewModel()
+        {
+            ImageClickCommand = new Command<string>(OnButtonPressed);
+            QuickShopCommand = new Command(OnQuickShopPressed);
+            QuickShopIcon = "icon_quick_shop";
+        }
 
         void OnButtonPressed(string id)
         {
@@ -81,6 +81,5 @@ namespace FreshFood.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

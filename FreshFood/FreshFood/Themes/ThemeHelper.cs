@@ -25,10 +25,10 @@ namespace FreshFood.Themes
             ResourceDictionary newTheme = null;
             switch (theme.ToLowerInvariant())
             {
-                case "light": 
+                case "light":
                     newTheme = new LightTheme();
                     break;
-                case "dark": 
+                case "dark":
                     newTheme = new DarkTheme();
                     break;
                 default:break;
@@ -48,6 +48,5 @@ namespace FreshFood.Themes
                 toResource[item] = fromResource[item];
             }
         }
-
     }
 }

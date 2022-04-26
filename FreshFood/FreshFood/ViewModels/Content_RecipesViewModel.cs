@@ -11,13 +11,6 @@ namespace FreshFood.ViewModels
 {
     public class Content_RecipesViewModel : BindableObject
     {
-        public Content_RecipesViewModel()
-        {
-            LoadData();
-            SelectedRecipeChangedCommand = new Command(OnRecipeChanged);
-        }
-        private ICommand SelectedRecipeChangedCommand { get; set; }
-
         private RecipeItem _currentItem;
         private ObservableCollection<RecipeItem> _recipes;
         public ObservableCollection<RecipeItem> Recipes
@@ -38,6 +31,13 @@ namespace FreshFood.ViewModels
                 OnPropertyChanged();
                 OnRecipeChanged();
             }
+        }
+        private ICommand SelectedRecipeChangedCommand { get; set; }
+
+        public Content_RecipesViewModel()
+        {
+            LoadData();
+            SelectedRecipeChangedCommand = new Command(OnRecipeChanged);
         }
         private void LoadData()
         {

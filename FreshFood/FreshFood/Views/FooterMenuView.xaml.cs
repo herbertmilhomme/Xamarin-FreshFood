@@ -18,6 +18,5 @@ namespace FreshFood.Views
             InitializeComponent();
             BindingContext = new FooterMenuViewModel();
         }
-
     }
 }

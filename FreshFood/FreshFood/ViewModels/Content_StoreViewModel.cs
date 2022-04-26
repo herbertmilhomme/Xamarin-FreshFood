@@ -11,11 +11,6 @@ namespace FreshFood.ViewModels
 {
     public class Content_StoreViewModel : BindableObject
     {
-        public Content_StoreViewModel()
-        {
-            LoadData();
-        }
-
         private StoreItem _currentItem;
         private ObservableCollection<StoreItem> _storeItems;
         public ObservableCollection<StoreItem> StoreItems
@@ -37,6 +32,12 @@ namespace FreshFood.ViewModels
                 NavigationService.Instance.OnStoreItemChanged(CurrentItem);
             }
         }
+
+        public Content_StoreViewModel()
+        {
+            LoadData();
+        }
+
         private void LoadData()
         {
             StoreItems = new ObservableCollection<StoreItem>(StoreItemsService.Instance.GetItems());

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,8 +7,7 @@
              xmlns:templates="clr-namespace:FreshFood.Views.Templates"
              xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              mc:Ignorable="d"
-             x:Class="FreshFood.Views.Content_StoreView"
-             >
+             x:Class="FreshFood.Views.Content_StoreView" >
 
 
     <ContentView.Resources>
@@ -50,16 +49,15 @@
     </ContentView.Resources>
 
     <ContentView.Content>
-
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="150"/>
             </Grid.RowDefinitions>
-            
-                <pancakeview:PancakeView 
+
+                <pancakeview:PancakeView
                     Grid.Row="0"
-                    CornerRadius="0,0,30,30" 
+                    CornerRadius="0,0,30,30"
                     BackgroundColor="{DynamicResource DynamicBackgroundColor}"
                     VerticalOptions="FillAndExpand"
                     Padding="20"
@@ -74,23 +72,21 @@
 
                         <Image Source="icon_colour_lemon" Style="{StaticResource MainImageStyle}"/>
                         <Label Text="Vegetables" Style="{StaticResource HeaderStyle}" FontSize="30"/>
-                    <Label Text="Browse" Style="{StaticResource SubheaderStyle}" FontSize="20"/>
-                </StackLayout>
+                        <Label Text="Browse" Style="{StaticResource SubheaderStyle}" FontSize="20"/>
+                    </StackLayout>
                 </pancakeview:PancakeView>
-                
-           
+
+
             <CollectionView Grid.Row="1"
                             ItemsSource="{Binding StoreItems}"
                             ItemTemplate="{StaticResource StoreItemsTemplate}"
                             VerticalOptions="End"
                             SelectedItem="{Binding CurrentItem, Mode=TwoWay}"
-                            SelectionMode="Single"
-                            >
+                            SelectionMode="Single" >
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal"/>
                 </CollectionView.ItemsLayout>
             </CollectionView>
         </Grid>
-
     </ContentView.Content>
 </ContentView>

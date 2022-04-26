@@ -10,3 +10,7 @@ Template/
 /FreshFood/FreshFood.iOS/bin/iPhoneSimulator/Debug
 /FreshFood/FreshFood/bin/Release/netstandard2.0
 /FreshFood/FreshFood.Android/bin/Release
+/FreshFood/.vs/FreshFood/v17
+/FreshFood/FreshFood.Domain/bin/Debug
+/FreshFood/FreshFood.Domain/obj
+FreshFood/FreshFood.Android/FreshFood.Android.csproj.user

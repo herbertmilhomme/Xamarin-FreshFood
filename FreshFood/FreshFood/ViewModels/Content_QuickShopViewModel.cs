@@ -8,14 +8,8 @@ using Xamarin.Forms;
 
 namespace FreshFood.ViewModels
 {
-
     public class Content_QuickShopViewModel : BindableObject
     {
-        public Content_QuickShopViewModel()
-        {
-            LoadData();
-        }
-
         private ObservableCollection<StoreItem> _storeItems;
         public ObservableCollection<StoreItem> StoreItems
         {
@@ -26,10 +20,14 @@ namespace FreshFood.ViewModels
                 OnPropertyChanged();
             }
         }
+        public Content_QuickShopViewModel()
+        {
+            LoadData();
+        }
+
         private void LoadData()
         {
             StoreItems = new ObservableCollection<StoreItem>(StoreItemsService.Instance.GetItems());
         }
     }
-
 }

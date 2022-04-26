@@ -26,7 +26,6 @@ namespace FreshFood.Custom.CustomBehaviors
         {
             entry.TextChanged += Entry_TextChanged;
             base.OnAttachedTo(entry);
-
         }
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
@@ -53,7 +52,5 @@ namespace FreshFood.Custom.CustomBehaviors
             entry.TextChanged -= Entry_TextChanged;
             base.OnDetachingFrom(entry);
         }
-
-
     }
 }

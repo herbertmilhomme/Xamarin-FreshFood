@@ -22,9 +22,9 @@ namespace FreshFood.Custom
         private int _quantity;
         public int Quantity
         {
-            get 
-            { 
-                return _quantity; 
+            get
+            {
+                return _quantity;
             }
             set
             {

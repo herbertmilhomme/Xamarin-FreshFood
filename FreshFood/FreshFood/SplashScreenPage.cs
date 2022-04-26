@@ -38,7 +38,7 @@ namespace FreshFood
             await splashImage.ScaleTo(0.8, 1500, Easing.Linear);
             await splashImage.ScaleTo(150, 500, Easing.BounceOut);
             Application.Current.MainPage = new SharedTransitionNavigationPage(new MainPage());
-
+            //Application.Current.MainPage = new SharedTransitionNavigationPage(new AppShell());
         }
     }
 }
