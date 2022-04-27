@@ -2,7 +2,8 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:views="clr-namespace:FreshFood.Views"
-			 x:Class="FreshFood.AppShell">
+			 x:Class="FreshFood.AppShell"
+			 Title="FreshFood">
 
 	<Shell.Resources>
 		<ResourceDictionary>
@@ -27,11 +28,18 @@
 			<Color x:Key="GrayColor">Gray</Color>
 			<Color x:Key="BackgroundColor">#F0F0F0</Color>-->
 			<Style x:Key="BaseStyle" TargetType="Element">
+				<Setter Property="Shell.BackgroundColor" Value="{StaticResource WhiteColor}" />
+				<Setter Property="Shell.ForegroundColor" Value="White" />
+				<Setter Property="Shell.TitleColor" Value="Black" />
+				<Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+				<Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+
 				<Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource WhiteColor}"/>
 				<Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource GreenColor}"/>
 				<Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource MediumDarkGray}"/>
 				<Setter Property="Shell.TabBarTitleColor" Value="{StaticResource GreenColor}"/>
 			</Style>
+			<Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
 			<Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
 
 			<!-- Fonts -->
@@ -70,10 +78,9 @@
 		</ResourceDictionary>
 	</Shell.Resources>
 
-	<FlyoutItem Title="Home">
-		<Tab Icon="icon_store.png">
-			<ShellContent ContentTemplate="{DataTemplate views:TabbedPage1}" />
-		</Tab>
+	<TabBar>
+		<ShellContent ContentTemplate="{DataTemplate views:TabbedPage1}" Icon="icon_store.png" Title="home" />
+		<ShellContent ContentTemplate="{DataTemplate views:TabbedPage1}" Icon="icon_store.png" Title="page2" />
 		<!--<Tab Icon="icon_store.png"> --><!--Home/Store Menu--><!--
 			<ShellContent ContentTemplate="{DataTemplate views:Content_StoreView}" />
 		</Tab>
@@ -89,5 +96,5 @@
 		<Tab Icon="icon_settings.png"> --><!--Setting--><!--
 			<ShellContent ContentTemplate="{DataTemplate views:Content_SettingsView}" />
 		</Tab>-->
-	</FlyoutItem>
+	</TabBar>
 </Shell>
