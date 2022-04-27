@@ -11,11 +11,11 @@
 			 mc:Ignorable="d"
 			 x:Class="FreshFood.App">
 	<Application.Resources>
-		<ResourceDictionary>
-			<!--<ResourceDictionary.MergedDictionaries>
+		<!--<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
 				<styles:Colors/>
 				<styles:Fonts/>
-			</ResourceDictionary.MergedDictionaries>-->
-		</ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>-->
 	</Application.Resources>
 </Application>
