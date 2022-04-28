@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace FreshFood.Views
+namespace FreshFood.Styles.Themes
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class TabbedPage1 : TabbedPage
+	public partial class DarkTheme : ResourceDictionary
 	{
-		public TabbedPage1()
+		public DarkTheme()
 		{
 			InitializeComponent();
 		}
